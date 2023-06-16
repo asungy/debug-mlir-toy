@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# This script modifies the `compile_comands.json` file so that it can be used
+# outside of a container.
+#
+# Run this script from the root project directory after building.
+
+set -e
+
+# Log info.
+info() {
+    printf "${BGreen}Info${NC}: $1\n" >&1
+}
+
+main() {
+    CONTAINER_ROOT_PATH='/mnt/debug-mlir-toy'
+    CONTAINER_ROOT_PATH=$(echo ${CONTAINER_ROOT_PATH} | sed 's/\//\\\//g')
+    LOCAL_ROOT_PATH=$(echo $(pwd) | sed 's/\//\\\//g')
+
+    sed -i "s/${CONTAINER_ROOT_PATH}/${LOCAL_ROOT_PATH}/g" compile_commands.json
+
+    echo "Done."
+}
+
+main "$@" || exit 1

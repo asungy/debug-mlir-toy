@@ -1,0 +1,23 @@
+services:
+  # Service for development
+  dev:
+    build: docker/dev
+    depends_on:
+      - mlir
+    volumes:
+      - type: bind
+        source: .
+        target: /mnt/debug-mlir-toy
+      - mlir-install:/mlir
+    working_dir: /mnt/debug-mlir-toy
+    tty: true
+
+  # Service to build MLIR
+  mlir:
+    build: docker/mlir
+    volumes:
+      - mlir-install:/mlir
+    tty: true
+
+volumes:
+  mlir-install:
