@@ -13,7 +13,7 @@ info() {
 }
 
 main() {
-    CONTAINER_ROOT_PATH='/mnt/debug-mlir-toy'
+    CONTAINER_ROOT_PATH='/mnt/grok-mlir-toy'
     CONTAINER_ROOT_PATH=$(echo ${CONTAINER_ROOT_PATH} | sed 's/\//\\\//g')
     LOCAL_ROOT_PATH=$(echo $(pwd) | sed 's/\//\\\//g')
 

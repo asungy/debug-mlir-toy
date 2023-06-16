@@ -1,4 +1,4 @@
-# debug-mlir-toy
+# Grokking MLIR Toy
 
 Building and debugging [MLIR examples][mlir_examples] for educational purposes.
 
@@ -11,7 +11,7 @@ docker compose up -d
 
 To attach to the dev container:
 ```bash
-docker exec -it debug-mlir-toy-dev-1 /bin/bash
+docker exec -it grok-mlir-toy-dev-1 /bin/bash
 ```
 
 To stop containers:

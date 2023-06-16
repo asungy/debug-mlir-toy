@@ -7,9 +7,9 @@ services:
     volumes:
       - type: bind
         source: .
-        target: /mnt/debug-mlir-toy
+        target: /mnt/grok-mlir-toy
       - mlir-install:/mlir
-    working_dir: /mnt/debug-mlir-toy
+    working_dir: /mnt/grok-mlir-toy
     tty: true
 
   # Service to build MLIR
